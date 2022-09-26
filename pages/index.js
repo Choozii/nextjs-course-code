@@ -1,17 +1,19 @@
-import { Fragment } from 'react';
-import Head from 'next/head';
+import Link from 'next/link';
+
 
 function HomePage() {
+  const portfolios = [
+    {id : "1", title : "p1"},
+    {id : "2", title : "p2"},
+    {id : "3", title : "p3"}
+  ];
+
   return (
-    <>
-      <Head>
-        <title>Blog</title>
-        <meta
-          name='description'
-          content='I post about programming and web development.'
-        />
-      </Head>
-    </>
+    <div>
+      <ul>
+       {portfolios.map(portfolio =><li><Link href={`/portfolio/${portfolio.id}`}>{portfolio.title}</Link></li>)}
+      </ul>
+    </div>
   );
 }
 
